@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".system">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="教师基本信息系统"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_name"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:hint="姓名"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/edt_sex"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <EditText
+        android:id="@+id/edt_sex"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:ems="10"
+        android:hint="性别"
+        android:inputType="textPersonName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edt_name"
+        app:layout_constraintStart_toEndOf="@+id/edt_name" />
+
+    <EditText
+        android:id="@+id/edt_tie"
+        android:layout_width="103dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="所任系别"
+        android:inputType="textPersonName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edt_sex"
+        app:layout_constraintEnd_toStartOf="@+id/edt_class"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/edt_sex" />
+
+    <EditText
+        android:id="@+id/edt_number"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="387dp"
+        android:layout_marginRight="387dp"
+        android:ems="10"
+        android:hint="联系方式"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_name" />
+
+    <EditText
+        android:id="@+id/edt_class"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:ems="10"
+        android:hint="所教班级"
+        android:inputType="textPersonName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edt_tie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/edt_tie" />
+
+    <TextView
+        android:id="@+id/edt_show"
+        android:layout_width="552dp"
+        android:layout_height="383dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorAccent"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginTop="88dp"
+        android:background="@color/colorAccent"
+        android:text="添加"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_number" />
+
+    <Button
+        android:id="@+id/btn_query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginLeft="47dp"
+        android:layout_marginTop="87dp"
+        android:background="@color/colorAccent"
+        android:text="查询"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/btn_add"
+        app:layout_constraintTop_toBottomOf="@+id/edt_number" />
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="165dp"
+        android:background="@color/colorAccent"
+        android:text="删除"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/btn_query"
+        app:layout_constraintTop_toBottomOf="@+id/edt_tie" />
+
+    <Button
+        android:id="@+id/btn_modify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginRight="65dp"
+        android:background="@color/colorAccent"
+        android:text="修改"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_delete"
+        app:layout_constraintTop_toBottomOf="@+id/edt_class" />
+</android.support.constraint.ConstraintLayout>

@@ -147,7 +147,7 @@
     <ListView
         android:id="@+id/lv_show"
         android:layout_width="584dp"
-        android:layout_height="413dp"
+        android:layout_height="409dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"

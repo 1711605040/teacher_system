@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 import android.util.Log;
 
-public class SQLiteAdapter {
+/*public class SQLiteAdapter {
     SQLiteDatabase db=null;
     Context context=null;
 
@@ -53,4 +53,4 @@ public class SQLiteAdapter {
         closedb();
         return result;
     }
-}
+}*/

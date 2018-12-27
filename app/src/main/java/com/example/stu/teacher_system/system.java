@@ -2,20 +2,24 @@ package com.example.stu.teacher_system;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class system extends AppCompatActivity implements View.OnClickListener {
 EditText edtName,edtSex,edtNumber,edtTie,edtClass;
 Button btnAdd,btnDisplay,btnDelete,btnModify;
-ListView lvShow;
+//ListView lvShow;
+    TextView tvshow;
 Helper helper;
 Infor infor=new Infor();
     @Override
@@ -28,6 +32,7 @@ Infor infor=new Infor();
         edtTie=findViewById(R.id.edt_tie);
         edtClass=findViewById(R.id.edt_class);
         edtNumber=findViewById(R.id.edt_number);
+        tvshow=findViewById(R.id.tv_show);
 
         btnAdd=findViewById(R.id.btn_add);
         btnDisplay=findViewById(R.id.btn_display);
@@ -38,7 +43,7 @@ Infor infor=new Infor();
         btnDisplay.setOnClickListener(this);
         btnModify.setOnClickListener(this);
 
-        lvShow=findViewById(R.id.lv_show);
+       // lvShow=findViewById(R.id.lv_show);
 
      /*btnAdd.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -96,6 +101,23 @@ Infor infor=new Infor();
                 db=helper.getReadableDatabase();
                 db.delete("teacher",null,null);
                 Toast.makeText(this,"删除成功！",Toast.LENGTH_SHORT).show();
+                db.close();
+                break;
+            case R.id.btn_display:
+                db=helper.getReadableDatabase();
+                Cursor cursor=db.query("teacher",null,null,null,null,null,null);
+                if (cursor.getCount()==0){
+                    Toast.makeText(this,"没有数据",Toast.LENGTH_SHORT).show();
+                }else {
+                    cursor.moveToFirst();
+                    tvshow.setText("姓名："+cursor.getString(1)+" 性别："+cursor.getString(2)+" 专业："+cursor.getString(3)+"/n"+"所教班级："+cursor.getString(4)+"  联系方式："+cursor.getString(5));
+                    //String[] teacher = {};
+                    //ArrayAdapter<String> adapter = new ArrayAdapter<String>(system.this, android.R.layout.simple_list_item_1,teacher);
+                    //lvShow.setAdapter(adapter);
+                }while (cursor.moveToNext()){
+                    tvshow.append("\n"+"姓名："+cursor.getString(1)+" 性别："+cursor.getString(2)+" 专业："+cursor.getString(3)+"/n"+"所教班级："+cursor.getString(4)+"  联系方式："+cursor.getString(5));
+            }
+                cursor.close();
                 db.close();
                 break;
         }

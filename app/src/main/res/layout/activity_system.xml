@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/beijing"
     tools:context=".system">
 
     <TextView
@@ -88,21 +89,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/edt_tie" />
 
-    <TextView
-        android:id="@+id/edt_show"
-        android:layout_width="552dp"
-        android:layout_height="383dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginLeft="26dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
-        android:layout_marginBottom="5dp"
-        android:background="@color/colorAccent"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/btn_add"
         android:layout_width="wrap_content"
@@ -110,7 +96,7 @@
         android:layout_marginStart="41dp"
         android:layout_marginLeft="41dp"
         android:layout_marginTop="88dp"
-        android:background="@color/colorAccent"
+        android:background="@android:drawable/btn_default"
         android:text="添加"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,7 +109,7 @@
         android:layout_marginStart="47dp"
         android:layout_marginLeft="47dp"
         android:layout_marginTop="87dp"
-        android:background="@color/colorAccent"
+        android:background="@android:drawable/btn_default"
         android:text="查询"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/btn_add"
@@ -136,7 +122,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
         android:layout_marginTop="165dp"
-        android:background="@color/colorAccent"
+        android:background="@android:drawable/btn_default"
         android:text="删除"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/btn_query"
@@ -151,10 +137,23 @@
         android:layout_marginTop="164dp"
         android:layout_marginEnd="65dp"
         android:layout_marginRight="65dp"
-        android:background="@color/colorAccent"
+        android:background="@android:drawable/btn_default"
         android:text="修改"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_delete"
         app:layout_constraintTop_toBottomOf="@+id/edt_class" />
+
+    <ListView
+        android:id="@+id/lv_show"
+        android:layout_width="584dp"
+        android:layout_height="413dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

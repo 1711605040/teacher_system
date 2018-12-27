@@ -98,7 +98,7 @@
         android:layout_marginTop="88dp"
         android:background="@android:drawable/btn_default"
         android:text="添加"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_number" />
 
@@ -111,7 +111,7 @@
         android:layout_marginTop="87dp"
         android:background="@android:drawable/btn_default"
         android:text="查询"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/btn_add"
         app:layout_constraintTop_toBottomOf="@+id/edt_number" />
 
@@ -124,7 +124,7 @@
         android:layout_marginTop="165dp"
         android:background="@android:drawable/btn_default"
         android:text="删除"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/btn_query"
         app:layout_constraintTop_toBottomOf="@+id/edt_tie" />
 
@@ -139,7 +139,7 @@
         android:layout_marginRight="65dp"
         android:background="@android:drawable/btn_default"
         android:text="修改"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_delete"
         app:layout_constraintTop_toBottomOf="@+id/edt_class" />

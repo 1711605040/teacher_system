@@ -6,16 +6,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
-public class Helper extends SQLiteOpenHelper {
-
-    public Helper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+class Helper extends SQLiteOpenHelper {
+    public Helper(Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-    }
 
+    }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql="create table information(_id integer primary key autoincrement,name varchar(20),sex varchar(2),tie varchar(10),banji varchar(20),phone integer)";
-        db.execSQL(sql);
+
+        db.execSQL("create table teacher(_id integer primary key autoincrement,"+"name verchar(20),sex verchar(10),tie verchar(20),banji verchar(20),phone integer )");
     }
 
     @Override

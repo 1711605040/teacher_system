@@ -33,7 +33,7 @@ public class SQLiteAdapter {
         values.put("tie",infor.getTie());
         values.put("class",infor.getBanji());
 
-        Long rowid = db.insert("information",null,values);
+        Long rowid = db.insert("teacher",null,values);
         if(rowid!=-1){
             result=true;
             Toast.makeText(context,"添加成功",Toast.LENGTH_LONG).show();

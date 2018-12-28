@@ -93,8 +93,12 @@ Infor infor=new Infor();
                 values.put("tie",tie);
                 values.put("banji",banji);
                 values.put("phone",phone);
-                 db.insert("teacher",null,values);
-                 Toast.makeText(this,"添加成功",Toast.LENGTH_SHORT).show();
+                if (name.equals("")){
+                    Toast.makeText(this,"姓名不能为空",Toast.LENGTH_SHORT).show();
+                }else {
+                    db.insert("teacher", null, values);
+                    Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();
+                }
                  db.close();
                  break;
             case R.id.btn_delete:
@@ -104,20 +108,33 @@ Infor infor=new Infor();
                 db.close();
                 break;
             case R.id.btn_display:
+                tvshow.setText("");
                 db=helper.getReadableDatabase();
                 Cursor cursor=db.query("teacher",null,null,null,null,null,null);
                 if (cursor.getCount()==0){
                     Toast.makeText(this,"没有数据",Toast.LENGTH_SHORT).show();
                 }else {
                     cursor.moveToFirst();
-                    tvshow.setText("姓名："+cursor.getString(1)+" 性别："+cursor.getString(2)+" 专业："+cursor.getString(3)+"/n"+"所教班级："+cursor.getString(4)+"  联系方式："+cursor.getString(5));
+                    tvshow.setText("姓名："+cursor.getString(1)+" 性别："+cursor.getString(2)+" 专业："+cursor.getString(3)+"\n"+"所教班级："+cursor.getString(4)+"  联系方式："+cursor.getString(5));
                     //String[] teacher = {};
                     //ArrayAdapter<String> adapter = new ArrayAdapter<String>(system.this, android.R.layout.simple_list_item_1,teacher);
                     //lvShow.setAdapter(adapter);
                 }while (cursor.moveToNext()){
-                    tvshow.append("\n"+"姓名："+cursor.getString(1)+" 性别："+cursor.getString(2)+" 专业："+cursor.getString(3)+"/n"+"所教班级："+cursor.getString(4)+"  联系方式："+cursor.getString(5));
+                    tvshow.append("\n"+"姓名："+cursor.getString(1)+" 性别："+cursor.getString(2)+" 专业："+cursor.getString(3)+"\n"+"所教班级："+cursor.getString(4)+"  联系方式："+cursor.getString(5));
             }
                 cursor.close();
+                db.close();
+                break;
+            case R.id.btn_modify:
+                db=helper.getWritableDatabase();
+                values=new ContentValues();
+                values.put("name",name=edtName.getText().toString());
+                values.put("sex",sex=edtSex.getText().toString());
+                values.put("tie",tie=edtTie.getText().toString());
+                values.put("banji",banji=edtClass.getText().toString());
+                values.put("phone",phone=edtNumber.getText().toString());
+                db.update("teacher",values,"name=?",new String[]{edtName.getText().toString()});
+                Toast.makeText(this,"信息已修改！",Toast.LENGTH_SHORT).show();
                 db.close();
                 break;
         }

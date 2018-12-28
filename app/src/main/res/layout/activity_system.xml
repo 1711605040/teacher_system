@@ -105,10 +105,11 @@
         android:id="@+id/btn_display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:background="@android:drawable/btn_default"
         android:text="显示全部"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_show"
+        app:layout_constraintBottom_toTopOf="@+id/ls_show"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -137,21 +138,6 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/btn_delete"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_show"
-        android:layout_width="561dp"
-        android:layout_height="375dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
-        android:layout_marginBottom="18dp"
-        android:text="TextView"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/btn_cha"
         android:layout_width="wrap_content"
@@ -164,5 +150,18 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/btn_delete"
         app:layout_constraintTop_toBottomOf="@+id/edt_number" />
+
+    <ListView
+        android:id="@+id/ls_show"
+        android:layout_width="584dp"
+        android:layout_height="377dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -32,7 +32,7 @@ Infor infor=new Infor();
         edtTie=findViewById(R.id.edt_tie);
         edtClass=findViewById(R.id.edt_class);
         edtNumber=findViewById(R.id.edt_number);
-        tvshow=findViewById(R.id.tv_show);
+        //tvshow=findViewById(R.id.tv_show);
 
         btnAdd=findViewById(R.id.btn_add);
         btnDisplay=findViewById(R.id.btn_display);

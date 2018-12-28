@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 public class system extends AppCompatActivity implements View.OnClickListener {
 EditText edtName,edtSex,edtNumber,edtTie,edtClass;
-Button btnAdd,btnDisplay,btnDelete,btnModify;
+Button btnAdd,btnDisplay,btnDelete,btnModify,btncha;
 //ListView lvShow;
     TextView tvshow;
 Helper helper;
@@ -38,10 +38,12 @@ Infor infor=new Infor();
         btnDisplay=findViewById(R.id.btn_display);
         btnDelete=findViewById(R.id.btn_delete);
         btnModify=findViewById(R.id.btn_modify );
+        btncha=findViewById(R.id.btn_cha);
         btnAdd.setOnClickListener(this);
         btnDelete.setOnClickListener(this);
         btnDisplay.setOnClickListener(this);
         btnModify.setOnClickListener(this);
+        btncha.setOnClickListener(this);
 
        // lvShow=findViewById(R.id.lv_show);
 
@@ -137,6 +139,10 @@ Infor infor=new Infor();
                 Toast.makeText(this,"信息已修改！",Toast.LENGTH_SHORT).show();
                 db.close();
                 break;
+            case R.id.btn_cha:
+                tvshow.setText("");
+                String name1=edtName.getText().toString();
+
         }
 
     }

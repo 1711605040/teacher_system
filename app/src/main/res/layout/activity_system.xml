@@ -55,7 +55,7 @@
         android:hint="所任系别"
         android:inputType="textPersonName"
         app:layout_constraintBaseline_toBaselineOf="@+id/edt_sex"
-        app:layout_constraintEnd_toStartOf="@+id/edt_class"
+        app:layout_constraintEnd_toStartOf="@+id/edt_banji"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/edt_sex" />
 
@@ -76,7 +76,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edt_name" />
 
     <EditText
-        android:id="@+id/edt_class"
+        android:id="@+id/edt_banji"
         android:layout_width="148dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
@@ -105,11 +105,11 @@
         android:id="@+id/btn_display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="8dp"
         android:background="@android:drawable/btn_default"
         android:text="显示全部"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_show"
+        app:layout_constraintBottom_toTopOf="@+id/lis_show"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -151,17 +151,15 @@
         app:layout_constraintEnd_toStartOf="@+id/btn_delete"
         app:layout_constraintTop_toBottomOf="@+id/edt_number" />
 
-    <TextView
-        android:id="@+id/tv_show"
-        android:layout_width="569dp"
-        android:layout_height="358dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="13dp"
-        android:text="TextView"
-        android:textSize="24sp"
+    <ListView
+        android:id="@+id/lis_show"
+        android:layout_width="584dp"
+        android:layout_height="377dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

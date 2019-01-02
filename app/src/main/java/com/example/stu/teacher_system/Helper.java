@@ -7,13 +7,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
 /*class Helper extends SQLiteOpenHelper {
-    public Helper(Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
-
+    public  Helper(Context context){
+        super(context,"teacher",null,1);
     }
     @Override
-    public void onCreate(SQLiteDatabase db) {
-
+    public  void onCreate(SQLiteDatabase db){
         db.execSQL("create table teacher(_id integer primary key autoincrement,"+"name verchar(20),sex verchar(10),tie verchar(20),banji verchar(20),phone verchar(20) )");
     }
 

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -52,6 +54,7 @@ public class system extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onClick(View v) {
         String name, sex, tie, banji, phone;
@@ -86,9 +89,6 @@ public class system extends AppCompatActivity implements View.OnClickListener {
                 db.close();
                 break;
             case R.id.btn_display:
-                /*db=helper.getReadableDatabase();
-                Adaper adaper=new Adaper();
-                lsshow.setAdapter(adaper);*/
                 tvshow.setText("");
                 db = helper.getReadableDatabase();
                 Cursor cursor = db.query("teacher", null, null, null, null, null, null);
@@ -97,9 +97,6 @@ public class system extends AppCompatActivity implements View.OnClickListener {
                 } else {
                     cursor.moveToFirst();
                     tvshow.setText("姓名：" + cursor.getString(1) + " 性别：" + cursor.getString(2) + " 专业：" + cursor.getString(3) + "\n" + "所教班级：" + cursor.getString(4) + "  联系方式：" + cursor.getString(5));
-                    //String[] teacher = {};
-                    //ArrayAdapter<String> adapter = new ArrayAdapter<String>(system.this, android.R.layout.simple_list_item_1,teacher);
-                    //lvShow.setAdapter(adapter);
                 }
                 while (cursor.moveToNext()) {
                     tvshow.append("\n" + "姓名：" + cursor.getString(1) + " 性别：" + cursor.getString(2) + " 专业：" + cursor.getString(3) + "\n" + "所教班级：" + cursor.getString(4) + "  联系方式：" + cursor.getString(5));
@@ -120,25 +117,21 @@ public class system extends AppCompatActivity implements View.OnClickListener {
                 db.close();
                 break;
             case R.id.btn_cha:
-                db = helper.getWritableDatabase();
-                List<Infor> list = new ArrayList<Infor>();
-                Cursor cursor1 = db.query("information", null, null, null, null, null, null);
-                if (cursor1.moveToFirst()) {
-                    do {
-                        Infor infor = new Infor();
-                        infor.setName(cursor1.getString(1));
-                        infor.setSex(cursor1.getString(2));
-                        infor.setTie(cursor1.getString(3));
-                        infor.setBanji(cursor1.getString(4));
-                        infor.setPhone(cursor1.getLong(5));
-                        list.add(infor);
-                    } while (cursor1.moveToNext());
+                tvshow.setText("");
+                db = helper.getReadableDatabase();
+                String chaname=edtName.getText().toString();
+                String chasex=edtSex.getText().toString();
+                Cursor cursor1 = db.query("teacher",null, "name=? and sex=?", new String[]{chaname,chasex}, null, null, null);
+                if (cursor1.getCount() == 0) {
+                    Toast.makeText(this, "没有数据", Toast.LENGTH_SHORT).show();
+                } else {
+                    cursor1.moveToFirst();
+                    tvshow.setText("姓名：" + cursor1.getString(1) + " 性别：" + cursor1.getString(2) + " 专业：" + cursor1.getString(3) + "\n" + "所教班级：" + cursor1.getString(4) + "  联系方式：" + cursor1.getString(5));
                 }
-                cursor1.moveToNext();
+                //   tvshow.setText("姓名：" + cursor1.getString(1) + " 性别：" + cursor1.getString(2) + " 专业：" + cursor1.getString(3) + "\n" + "所教班级：" + cursor1.getString(4) + "  联系方式：" + cursor1.getString(5));
+                   break;
         }
-
     }
-}
 
    /* class Adaper extends BaseAdapter{
 
@@ -174,7 +167,7 @@ public class system extends AppCompatActivity implements View.OnClickListener {
             return view;
         }
     }*/
-
+}
 class Helper extends SQLiteOpenHelper {
   public  Helper(Context context){
       super(context,"itcast.db",null,1);

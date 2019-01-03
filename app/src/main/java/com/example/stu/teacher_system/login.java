@@ -25,7 +25,7 @@ public class login extends AppCompatActivity {
                     Intent intent = new Intent(com.example.stu.teacher_system.login.this, system.class);
                     startActivity(intent);
                 }else {
-                    Toast.makeText(login.this, "用户名或密码不正确！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login.this, "用户名或密码不正确！！", Toast.LENGTH_SHORT).show();
                 }
             }
         });

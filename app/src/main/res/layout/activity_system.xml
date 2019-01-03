@@ -105,13 +105,13 @@
         android:id="@+id/btn_display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="24dp"
         android:background="@android:drawable/btn_default"
         android:text="显示全部"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/lis_show"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cha" />
 
     <Button
         android:id="@+id/btn_delete"
@@ -151,15 +151,16 @@
         app:layout_constraintEnd_toStartOf="@+id/btn_delete"
         app:layout_constraintTop_toBottomOf="@+id/edt_number" />
 
-    <ListView
-        android:id="@+id/lis_show"
-        android:layout_width="584dp"
-        android:layout_height="377dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+    <TextView
+        android:id="@+id/tv_show"
+        android:layout_width="587dp"
+        android:layout_height="372dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="11dp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

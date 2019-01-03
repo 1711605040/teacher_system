@@ -23,10 +23,11 @@ import java.util.List;
 public class system extends AppCompatActivity implements View.OnClickListener {
     EditText edtName, edtSex, edtNumber, edtTie, edtBanji;
     Button btnAdd, btnDisplay, btnDelete, btnModify, btncha;
-
-    TextView tvshow;
+   ListView lsshow;
+    //TextView tvshow;
     Helper helper;
     Infor infor = new Infor();
+    List<Infor>list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,8 @@ public class system extends AppCompatActivity implements View.OnClickListener {
         edtTie = findViewById(R.id.edt_tie);
         edtBanji = findViewById(R.id.edt_banji);
         edtNumber = findViewById(R.id.edt_number);
-        tvshow = findViewById(R.id.tv_show);
-        //lsshow=findViewById(R.id.ls_show);
+        //tvshow = findViewById(R.id.tv_show);
+        lsshow=findViewById(R.id.ls_show);
 
         btnAdd = findViewById(R.id.btn_add);
         btnDisplay = findViewById(R.id.btn_display);
@@ -87,10 +88,24 @@ public class system extends AppCompatActivity implements View.OnClickListener {
                 db.close();
                 break;
             case R.id.btn_display:
-                tvshow.setText("");
+                //tvshow.setText("");
                 db = helper.getReadableDatabase();
+                list = new ArrayList<Infor>();
                 Cursor cursor = db.query("teacher", null, null, null, null, null, null);
-                if (cursor.getCount() == 0) {
+                if (cursor.moveToFirst()){
+                    do {
+
+                        Infor infor = new Infor();
+                        infor.setName(cursor.getString(1));
+                        infor.setSex(cursor.getString(2));
+                        infor.setTie(cursor.getString(3));
+                        infor.setBanji(cursor.getString(4));
+                        infor.setPhone(cursor.getString(5));
+                        list.add(infor);
+                    }while (cursor.moveToNext());
+                }
+                lsshow.setAdapter(new MyAdapter());
+               /* if (cursor.getCount() == 0) {
                     Toast.makeText(this, "没有数据", Toast.LENGTH_SHORT).show();
                 } else {
                     cursor.moveToFirst();
@@ -98,7 +113,7 @@ public class system extends AppCompatActivity implements View.OnClickListener {
                 }
                 while (cursor.moveToNext()) {
                     tvshow.append("\n" + "姓名：" + cursor.getString(1) + " 性别：" + cursor.getString(2) + " 专业：" + cursor.getString(3) + "\n" + "所教班级：" + cursor.getString(4) + "  联系方式：" + cursor.getString(5));
-                }
+                }*/
                 cursor.close();
                 db.close();
                 break;
@@ -115,7 +130,7 @@ public class system extends AppCompatActivity implements View.OnClickListener {
                 db.close();
                 break;
             case R.id.btn_cha:
-                tvshow.setText("");
+                /*tvshow.setText("");
                 db = helper.getWritableDatabase();
                 String chaname=edtName.getText().toString();
                 String chasex=edtSex.getText().toString();
@@ -125,8 +140,41 @@ public class system extends AppCompatActivity implements View.OnClickListener {
                 } else {
                     cursor1.moveToFirst();
                     tvshow.setText("姓名：" + cursor1.getString(1) + " 性别：" + cursor1.getString(2) + " 专业：" + cursor1.getString(3) + "\n" + "所教班级：" + cursor1.getString(4) + "  联系方式：" + cursor1.getString(5));
-                }
+                }*/
                      break;
+        }
+    }
+    class  MyAdapter extends BaseAdapter{
+        @Override
+        public int getCount() {
+            return list.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return list.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+                View view=View.inflate(system.this,R.layout.list_time,null);
+                TextView tname=view.findViewById(R.id.tvname);
+            TextView tsex=view.findViewById(R.id.tvsex);
+            TextView ttie=view.findViewById(R.id.tvtie);
+            TextView tbanji=view.findViewById(R.id.tvbanji);
+            TextView tphone=view.findViewById(R.id.tvphone);
+            Infor infor=(Infor)getItem(position);
+            tname.setText(String.valueOf(infor.getName()));
+            tsex.setText(String.valueOf(infor.getSex()));
+            ttie.setText(String.valueOf(infor.getTie()));
+            tbanji.setText(String.valueOf(infor.getBanji()));
+            tphone.setText(String.valueOf(infor.getPhone()));
+                return view;
         }
     }
 

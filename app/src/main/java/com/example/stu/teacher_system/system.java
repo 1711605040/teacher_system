@@ -130,6 +130,22 @@ public class system extends AppCompatActivity implements View.OnClickListener {
                 db.close();
                 break;
             case R.id.btn_cha:
+                String chaname=edtName.getText().toString();
+                String chasex=edtSex.getText().toString();
+                db = helper.getReadableDatabase();
+                list = new ArrayList<Infor>();
+                Cursor cursor2 = db.query("teacher", null, "name=? and sex=?", new String[]{chaname,chasex}, null, null, null);
+                if (cursor2.moveToFirst()) {
+                        Infor infor = new Infor();
+                        infor.setName(cursor2.getString(1));
+                        infor.setSex(cursor2.getString(2));
+                        infor.setTie(cursor2.getString(3));
+                        infor.setBanji(cursor2.getString(4));
+                        infor.setPhone(cursor2.getString(5));
+                        list.add(infor);
+                }
+                lsshow.setAdapter(new MyAdapter());
+                break;
                 /*tvshow.setText("");
                 db = helper.getWritableDatabase();
                 String chaname=edtName.getText().toString();
@@ -141,7 +157,6 @@ public class system extends AppCompatActivity implements View.OnClickListener {
                     cursor1.moveToFirst();
                     tvshow.setText("姓名：" + cursor1.getString(1) + " 性别：" + cursor1.getString(2) + " 专业：" + cursor1.getString(3) + "\n" + "所教班级：" + cursor1.getString(4) + "  联系方式：" + cursor1.getString(5));
                 }*/
-                     break;
         }
     }
     class  MyAdapter extends BaseAdapter{

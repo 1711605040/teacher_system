@@ -30,6 +30,7 @@
         android:ems="10"
         android:hint="姓名"
         android:inputType="textPersonName"
+        android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/edt_sex"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +45,7 @@
         android:ems="10"
         android:hint="性别"
         android:inputType="textPersonName"
+        android:textSize="30sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/edt_name"
         app:layout_constraintStart_toEndOf="@+id/edt_name" />
 
@@ -54,6 +56,7 @@
         android:ems="10"
         android:hint="所任系别"
         android:inputType="textPersonName"
+        android:textSize="30sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/edt_sex"
         app:layout_constraintEnd_toStartOf="@+id/edt_banji"
         app:layout_constraintHorizontal_bias="0.5"
@@ -71,6 +74,7 @@
         android:ems="10"
         android:hint="联系方式"
         android:inputType="textPersonName"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_name" />
@@ -84,6 +88,7 @@
         android:ems="10"
         android:hint="所教班级"
         android:inputType="textPersonName"
+        android:textSize="30sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/edt_tie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -117,9 +122,9 @@
         android:id="@+id/btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:background="@android:drawable/btn_default"
         android:text="删除"
         android:textSize="24sp"
@@ -142,14 +147,13 @@
         android:id="@+id/btn_cha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="66dp"
         android:layout_marginRight="66dp"
         android:background="@android:drawable/btn_default"
         android:text="查询"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_delete"
-        app:layout_constraintTop_toBottomOf="@+id/edt_number" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn_delete"
+        app:layout_constraintEnd_toStartOf="@+id/btn_delete" />
 
     <ListView
         android:id="@+id/ls_show"

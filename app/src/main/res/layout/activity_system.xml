@@ -22,8 +22,6 @@
         android:id="@+id/edt_name"
         android:layout_width="102dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -40,25 +38,25 @@
         android:id="@+id/edt_sex"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:ems="10"
         android:hint="性别"
         android:inputType="textPersonName"
         android:textSize="30sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/edt_name"
+        app:layout_constraintEnd_toStartOf="@+id/edt_tie"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/edt_name" />
 
     <EditText
         android:id="@+id/edt_tie"
-        android:layout_width="103dp"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="所任系别"
         android:inputType="textPersonName"
         android:textSize="30sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/edt_sex"
-        app:layout_constraintEnd_toStartOf="@+id/edt_banji"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/edt_sex" />
 
@@ -66,33 +64,28 @@
         android:id="@+id/edt_number"
         android:layout_width="164dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="387dp"
-        android:layout_marginRight="387dp"
         android:ems="10"
         android:hint="联系方式"
         android:inputType="textPersonName"
         android:textSize="30sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edt_banji"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_name" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/edt_banji" />
 
     <EditText
         android:id="@+id/edt_banji"
         android:layout_width="148dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginTop="27dp"
         android:ems="10"
         android:hint="所教班级"
         android:inputType="textPersonName"
         android:textSize="30sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edt_tie"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/edt_number"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/edt_tie" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_name" />
 
     <Button
         android:id="@+id/btn_add"

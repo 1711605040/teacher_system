@@ -105,15 +105,6 @@ public class system extends AppCompatActivity implements View.OnClickListener {
                     }while (cursor.moveToNext());
                 }
                 lsshow.setAdapter(new MyAdapter());
-               /* if (cursor.getCount() == 0) {
-                    Toast.makeText(this, "没有数据", Toast.LENGTH_SHORT).show();
-                } else {
-                    cursor.moveToFirst();
-                    tvshow.setText("姓名：" + cursor.getString(1) + " 性别：" + cursor.getString(2) + " 专业：" + cursor.getString(3) + "\n" + "所教班级：" + cursor.getString(4) + "  联系方式：" + cursor.getString(5));
-                }
-                while (cursor.moveToNext()) {
-                    tvshow.append("\n" + "姓名：" + cursor.getString(1) + " 性别：" + cursor.getString(2) + " 专业：" + cursor.getString(3) + "\n" + "所教班级：" + cursor.getString(4) + "  联系方式：" + cursor.getString(5));
-                }*/
                 cursor.close();
                 db.close();
                 break;
@@ -146,17 +137,6 @@ public class system extends AppCompatActivity implements View.OnClickListener {
                 }
                 lsshow.setAdapter(new MyAdapter());
                 break;
-                /*tvshow.setText("");
-                db = helper.getWritableDatabase();
-                String chaname=edtName.getText().toString();
-                String chasex=edtSex.getText().toString();
-                Cursor cursor1=db.query("teacher",null,"name=? and sex=?",new String[]{chaname,chasex},null,null,null);
-                if (cursor1.getCount() == 0) {
-                    Toast.makeText(this, "没有数据", Toast.LENGTH_SHORT).show();
-                } else {
-                    cursor1.moveToFirst();
-                    tvshow.setText("姓名：" + cursor1.getString(1) + " 性别：" + cursor1.getString(2) + " 专业：" + cursor1.getString(3) + "\n" + "所教班级：" + cursor1.getString(4) + "  联系方式：" + cursor1.getString(5));
-                }*/
         }
     }
     class  MyAdapter extends BaseAdapter{
